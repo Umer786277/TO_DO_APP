@@ -16,6 +16,8 @@ Key Features:
 
 7. **Responsive Design:** Whether you're accessing Django-Do on a desktop, tablet, or smartphone, you can enjoy a seamless experience thanks to its responsive design. The application adapts to different screen sizes and devices, ensuring optimal usability and accessibility.
 
+8. **AJAX Calls:** Django-Do leverages AJAX (Asynchronous JavaScript and XML) calls to enhance user interaction and improve performance. AJAX enables seamless asynchronous communication between the client and server, allowing tasks to be added, updated, or deleted without the need for full page reloads, resulting in a smoother and more responsive user 
+
 ### Technologies Used:
 - **Django**: Django serves as the foundation of Django-Do, providing a robust web framework for building the application's backend logic and handling HTTP requests.
   

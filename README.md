@@ -1,5 +1,6 @@
 **TO_DO_APP**
-Description:
+
+**Description**:
 Django-Do is a comprehensive CRUD (Create, Read, Update, Delete) to-do list application built using the Django web framework. Designed with simplicity and efficiency in mind, Django-Do empowers users to manage their tasks effortlessly, providing a seamless experience from task creation to completion.
 
 Key Features:

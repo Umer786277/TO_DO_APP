@@ -1,0 +1,153 @@
+
+
+<script>
+    $(document).ready(function() {
+        $('#btnsave').click(function(event) {
+            event.preventDefault();
+            output=""
+          
+            console.log("Button Clicked");
+            let sid=$("#csId").val();
+            let nm=$("#name").val();
+            let em=$("#email").val();
+            let ps=$("#password").val()
+          //  let csrfToken = $("input[name=csrfmiddlewaretoken]").val());
+
+            if (sid==""){
+
+                console.log("Id Required")
+            }
+            
+            else if (nm==""){
+
+                console.log("Nmae Required")
+            }
+
+            else if(em==""){
+
+                console.log(" Email Required")
+            }
+            else if(ps==""){
+
+                console.log("Password Required")
+            }
+       
+            else{
+
+               
+                console.log(nm)
+                console.log(em)
+                console.log(ps)
+                console.log(sid)
+
+
+           //  mydata={name:nm,email:em,password:ps};
+
+                $.ajax({
+                    url: "{% url "index" %}",
+                    method:"POST",
+                    
+                    data: {
+                        id:sid,
+                        name: nm,
+                        email: em,
+                        password: ps,
+                        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+
+                      
+                        
+                    },
+                    success: function(data) {
+                         console.log(data);
+                        var x= data.student_data;
+
+                    if(data.status=="Save"){
+                            console.log("Form Submitted Successfully")
+                            for(i=0;i<x.length;i++){
+
+
+                               
+                                output+="<tr><td>"+ x[i].id + "</td><td>" + x[i].name + "</td><td>"+ x[i].email +  "</td><td>"  + x[i].password + 
+                                    "</td><td> <input type='button' value='Edit' class='btn btn-warning btn-sm btn-edit' data-sid="+ x[i].id +"> <input type='button' value='Delete' class='btn btn-danger btn-sm btn-del' data-sid="+ x[i].id +">";
+            
+            
+            
+            
+            
+            
+            
+                                    }
+
+                        
+                       
+                            $("#tbody").html(output);
+
+
+
+
+
+                  
+
+
+
+                            $("form")[0].reset();
+                     
+
+
+                    }
+                    else if(data.status=="0"){
+                        console.log("Unable to submit the form")
+
+                    }
+                }
+                });
+
+            }
+
+            
+
+      
+        });
+    });
+
+
+    $(tbody).on("click",".btn-del", function(){
+        console.log("Delete Button Clicked")
+
+        let id=$(this).attr("data-sid");
+
+        mydata={sid:id,
+            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()};
+
+        mythis=this;
+
+
+        $.ajax({
+
+            method:"POST",
+            url:{% url 'delete' %},
+            data:mydata,
+
+            success:function(data){
+
+                if(data.status==1){
+                    console.log("Data Deletd Successfully")
+                    $(mythis).closest("tr").fadeOut()
+
+                }
+                
+            else if(data.status==0){
+                    console.log("Unable Deletd Successfully")
+                    $(mythis).closest("tr").fadeout()
+
+                }
+
+
+
+
+            }
+        })
+
+
+    })
+    </script>

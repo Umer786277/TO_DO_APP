@@ -13,9 +13,6 @@ Key Features:
 
 4. **Delete Tasks:** Completed a task or decided it's no longer necessary? Django-Do allows users to delete tasks from their to-do list effortlessly. With the option to delete tasks individually or in bulk, users can keep their task list organized and clutter-free.
 
-5. **Search and Filter:** Finding specific tasks is a breeze with Django-Do's powerful search and filter functionality. Users can search for tasks by keyword or filter tasks based on criteria such as priority, due date, or category, helping them locate the tasks they need quickly and efficiently.
-
-6. **User Authentication:** Django-Do prioritizes security by implementing user authentication, ensuring that only authorized users can access and manage their to-do lists. Each user has their own personalized experience, with their tasks securely stored and accessible only to them.
 
 7. **Responsive Design:** Whether you're accessing Django-Do on a desktop, tablet, or smartphone, you can enjoy a seamless experience thanks to its responsive design. The application adapts to different screen sizes and devices, ensuring optimal usability and accessibility.
 
